@@ -1,0 +1,20 @@
+iris %>% group_by(Species) %>% summarize (varSL = var(Sepal.Length))
+iris %>% group_by(Species) %>% summarize (sdSL = sd(Sepal.Length))
+iris %>% group_by(Species) %>% summarize (medianSL = median(Sepal.Length))
+iris %>% group_by(Species) %>%         
+summarize (meanSL = mean(Sepal.Length),                   
+varSL = var(Sepal.Length),                    
+sdSL = sd(Sepal.Length) )
+
+mtcarsmtcars %>% group_by(cyl) %>% summarize (meanMpg = mean(mpg))
+mtcars %>% group_by(vs,am) %>% summarize (meanMpg = mean(mpg))
+mtcars %>% group_by(vs,am) %>% summarize (medianMpg = median(mpg))
+mtcars %>% select(1:4) %>% head(4) #first 4 headings going down
+mtcars %>% select(1:drat) %>% head(4) #first one to the heading called drat
+mtcars %>% select(cyl:vs) %>% head(4)
+mtcars %>% select(2:4, everything()) %>% head(4)
+mtcars %>% mutate(sqrt(mpg)) %>% head(5)
+mtcars %>% mutate(sqrtQsec = sqrt(qsec)) %>% head(5)
+mtcars %>% mutate(sqrtMPG = sqrt(mpg),logMPG = logmpg)) %>%           
+select(mpg,sqrtMPG,logMPG,everything() ) %>%           
+head(5)

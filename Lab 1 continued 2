@@ -1,0 +1,29 @@
+install.packages("readr")
+install.packages("modelr")
+install.packages("randomForest")
+install.packages("ggplot2")
+library(readr)
+library(modelr)
+library(randomForest)
+library(ggplot2)
+data(diamonds)
+diamonds
+#Q8
+dim(diamonds)
+names(diamonds)
+diamtrain <- diamonds %>% sample_frac(0.30)
+diamtest <- diamonds %>% sample_frac(0.10)
+#Q9
+nrow(diamtrain)
+nrow(diamtest)
+dim(diamtrain)
+dim(diamtest)
+pricemodel <- randomForest(price ~ . ,data=diamtrain
+)pricemodel <- lm(price ~ . ,data=diamtrain)
+pricemodel
+rmse(pricemodel,diamtrain)
+rmse(pricemodel,diamtest)
+mae(pricemodel, diamtrain)
+mae(pricemodel, diamtest)
+rsquare(pricemodel,diamtrain)
+rsquare(pricemodel,diamtest)
